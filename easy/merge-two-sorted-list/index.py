@@ -17,7 +17,7 @@ class Solution:
         if not l1:
             return l2
         
-        dummy = ListNode()
+        dummy = ListNode() # (0, None)
         prev = dummy
 
         while l1 and l2:
@@ -28,7 +28,7 @@ class Solution:
                 prev.next = l2
                 l2 = l2.next
 
-            prev = prev.next
+            prev = prev.next # proceed for replace
           
         if l1: 
             prev.next = l1
