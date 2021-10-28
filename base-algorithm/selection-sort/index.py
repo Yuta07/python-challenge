@@ -1,18 +1,21 @@
-print('Num: [10, 3, 19, 12, 24, 15, 26, 7, 4, 9, 20]')
+import random
 
-list = [10, 3, 19, 12, 24, 15, 26, 7, 4, 9, 20]
+list = random.sample(range(20), k = 20)
+print(list)
+
 min = 0
 
-for i in range(len(list)):
-  min = i
+def selectionSort(data, limit):
+  for i in range(limit):
+    min = i
+
+    for j in range(i + 1, limit):
+      if data[min] > data[j]:
+        min = j
+      
+    data[i], data[min] = data[min], data[i]
   
-  if i > len(list):
-    break
+  return data
 
-  for j in range(i + 1, len(list)):
-    if list[min] > list[j]:
-      min = j
-    
-  list[i], list[min] = list[min], list[i]
-
-print(list)
+result = selectionSort(list, len(list))
+print(result)
